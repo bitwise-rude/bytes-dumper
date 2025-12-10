@@ -1,2 +1,4 @@
 *.swp
 bytes_dumper
+*.o
+
