@@ -1,13 +1,13 @@
 CC = gcc
 
 SRCS = main.c
-OBJS = $(SRCS:.c = .o)
+OBJS = $(SRCS:.c=.o)
  
 TARGET = bytes_dumper
 
 all: $(TARGET)
 
-$(TARGET) : $(SRCS)
+$(TARGET) : $(OBJS)
 	$(CC) $(OBJS) -o $(TARGET)
 %.o: %.c
 	$(CC) -c $< -o $@
