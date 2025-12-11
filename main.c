@@ -35,6 +35,11 @@ int main(int argc, char	*argv[]){
 		if (col_counter > cols){
 			printf("\n");
 			col_counter = 0;
+			row_counter ++;
+		}
+
+		if (row_counter> rows && rows != 0){
+			break;		
 		}
 
 	}
