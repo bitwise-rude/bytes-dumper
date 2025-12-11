@@ -11,6 +11,9 @@ int main(int argc, char	*argv[]){
 		printf("\tAt least one file is needed as argument\n"); exit(1);
 	}
 	
+	size_t rows = 0;
+	size_t cols =10;
+
 	char *file_to_dump = argv[1]; // TODO: check if file exists
 	
 	FILE *fp = fopen(file_to_dump, "rb");
@@ -22,10 +25,21 @@ int main(int argc, char	*argv[]){
 
 	// read the bytes
 	u16 buffer;
-	
+	size_t row_counter = 0;
+	size_t col_counter = 0;
+
 	while (fread(&buffer, sizeof(buffer),1,fp) > 0){
-	printf("DATA:%x\n",buffer);
-	}	
+		printf("%x\t",buffer);
+		
+		col_counter ++;
+		if (col_counter > cols){
+			printf("\n");
+			col_counter = 0;
+		}
+
+	}
+	printf("\n");
+
 
 	fclose(fp);
 }
