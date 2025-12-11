@@ -29,14 +29,15 @@ int main(int argc, char	*argv[]){
 	size_t col_counter = 0;
 
 	while (fread(&buffer, sizeof(buffer),1,fp) > 0){
-		printf("%x\t",buffer);
 		
 		col_counter ++;
-		if (col_counter > cols){
+		if (col_counter >= cols){
 			printf("\n");
 			col_counter = 0;
 			row_counter ++;
 		}
+
+		printf("%04x\t",buffer);
 
 		if (row_counter> rows && rows != 0){
 			break;		
